@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: rentfurlax-frontend-deployment
+spec:
+ replicas: 3  
+ selector:
+   matchLabels:
+     app: rentfurlax-frontend
+ template:
+   metadata:
+     labels:
+       app: rentfurlax-frontend
+   spec:
+     containers:
+     - name: rentfurlax-frontend-container
+       image: ishantkr/rentfurlax-frontend:latest
+       ports:
+       - containerPort: 3000
